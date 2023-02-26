@@ -3,6 +3,7 @@ from .models import Usuarios
 from .forms import RegistrarUsuario
 
 def index(request):
+
     mis_usuarios = Usuarios.objects.all()
     if request.method == 'POST':
         register_form = RegistrarUsuario(request.POST)
@@ -12,4 +13,3 @@ def index(request):
     else:
         register_form = RegistrarUsuario()
         return render(request, 'forms/mi_form.html', {'register_form': register_form,'usuarios': mis_usuarios})
-

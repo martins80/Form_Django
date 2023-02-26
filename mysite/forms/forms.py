@@ -27,14 +27,15 @@ class RegistrarUsuario(forms.Form):
                                         'placeholder':'ejemplo@ejemplo.com',
 
                                     }))
-def registrar_usuario(self):
-    fecha = datetime(int(self.data['fecha_de_nacimiento_year']),
+    def registrar_usuario(self):
+         fecha = datetime(int(self.data['fecha_de_nacimiento_year']),
                      int(self.data['fecha_de_nacimiento_month']),
                      int(self.data['fecha_de_nacimiento_day']))
         
-    nuevo_usuario = Usuarios(nombre=self.data['nombre'],
+         nuevo_usuario = Usuarios(nombre=self.data['nombre'],
                              telefono=self.data['telefono'],
                              fecha_de_nacimiento=fecha,
                              email=self.data['email'])
-    nuevo_usuario.save()
-    return 'Registro exitoso'
+         nuevo_usuario.save()
+         return 'Registro exitoso'
+    
